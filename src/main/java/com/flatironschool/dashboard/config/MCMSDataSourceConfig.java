@@ -13,7 +13,7 @@ public class MCMSDataSourceConfig {
     public DataSource getDataSource() {
         DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName("org.postgresql.Driver");
-        dataSourceBuilder.url("jdbc:postgresql://localhost:5432/mcmsdb");
+        dataSourceBuilder.url("jdbc:postgresql://mcmsdb:5432/mcmsdb");
         dataSourceBuilder.username("mcmsuser");
         dataSourceBuilder.password("mcmsuser123!");
         return dataSourceBuilder.build();
