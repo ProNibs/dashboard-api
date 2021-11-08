@@ -21,6 +21,11 @@ public class DashboardController {
     @Autowired
     DashboardService dashboardService;
 
+    @GetMapping("/")
+    public String healthCheck() {
+        return "OK";
+    }
+
     @GetMapping("/condenser")
     public Iterable<Condenser> getAllCondensers() {
         return dashboardService.getAllCondensers();
