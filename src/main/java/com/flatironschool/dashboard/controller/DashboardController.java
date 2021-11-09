@@ -21,7 +21,7 @@ public class DashboardController {
     @Autowired
     DashboardService dashboardService;
 
-    @GetMapping("/")
+    @GetMapping("/health")
     public String healthCheck() {
         return "OK";
     }
