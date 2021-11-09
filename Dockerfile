@@ -16,7 +16,7 @@ VOLUME /tmp
 ARG DEPENDENCY=/app/build/libs/dependency
 # Copy the DB migrations into the Flyway migrations location as defined in the flyways.conf file
 COPY ./src/main/resources/db/migration/ /app/lib/db/migration/
-COPY flyway.conf /app/lib/flyway.conf
+#COPY flyway.conf /app/lib/flyway.conf
 
 COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
