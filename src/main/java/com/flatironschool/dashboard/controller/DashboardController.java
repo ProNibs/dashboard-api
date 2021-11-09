@@ -5,8 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.flatironschool.dashboard.model.Condenser;
 import com.flatironschool.dashboard.service.DashboardService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -24,6 +27,20 @@ public class DashboardController {
     @GetMapping("/health")
     public String healthCheck() {
         return "OK";
+    }
+
+    @GetMapping("/ready")
+    public ResponseEntity readyCheck() {
+        try {
+            // Ensure data is pre-populated correctly
+            if (getAllCondensers().iterator().hasNext()) {
+                return new ResponseEntity(HttpStatus.OK);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+        // Not connected to DB yet, return 503
+        return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
     }
 
     @GetMapping("/condenser")
