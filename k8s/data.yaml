@@ -1,11 +1,23 @@
 #@data/values
 ---
+appName: dashboard-api
+namespace: dashboard-api
+containerPort: 8080
+imageName: dashboard-api
+ingressHost: dashboard.api.127.0.0.1.nip.io
+healthCheckPath: /api/v1/health
 env: 
-- name: AGGREGATOR_HOSTNAME
-  value: aggregator.127.0.0.1.nip.io
-- name: AGGREGATOR_PORT
-  value: "8443"
-- name: API_HOSTNAME
-  value: dashboard.api.127.0.0.1.nip.io
-- name: API_PORT
+- name: DATABASE_HOSTNAME
+  value: mcmsdb
+- name: DATABASE_PORT
+  value: "5432"
+- name: DATABASE_NAME
+  value: mcmsdb
+- name: DATABASE_USER
+  value: mcmsuser
+- name: DATABASE_PASSWORD
+  value: mcmsuser123!
+- name: FRONTEND_HOSTNAME
+  value: dashboard.web.127.0.0.1.nip.io
+- name: DATABASE_PORT
   value: "8443"
