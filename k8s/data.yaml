@@ -8,7 +8,7 @@ ingressHost: dashboard.api.127.0.0.1.nip.io
 healthCheckPath: /api/v1/health
 env: 
 - name: DATABASE_HOSTNAME
-  value: mcmsdb
+  value: dashboard-database-svc
 - name: DATABASE_PORT
   value: "5432"
 - name: DATABASE_NAME
@@ -19,5 +19,5 @@ env:
   value: mcmsuser123!
 - name: FRONTEND_HOSTNAME
   value: dashboard.web.127.0.0.1.nip.io
-- name: DATABASE_PORT
+- name: FRONTEND_PORT
   value: "8443"
